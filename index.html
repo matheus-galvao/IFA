@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto IFA - Acessibilidade 2°C</title>
+    <style>
+        /* Estilos Globais e Acessibilidade */
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --primary-color: #0056b3;
+            --card-bg: #fff;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: font-size 0.3s;
+        }
+
+        /* Barra de Acessibilidade */
+        .accessibility-bar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .accessibility-bar button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .accessibility-bar button:hover {
+            background-color: #777;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 { margin: 0; font-size: 2.5em; }
+        header p { font-size: 1.2em; margin-top: 10px; }
+
+        /* Container Principal */
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* Seções de Grupo */
+        .group-section {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .group-section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* Grid para os vídeos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .video-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+        }
+
+        /* Ajuste específico para Shorts do YouTube (verticais) */
+        .shorts-grid iframe {
+            height: 500px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
+        <span>Acessibilidade:</span>
+        <button onclick="mudarFonte(1)" aria-label="Aumentar fonte">A+</button>
+        <button onclick="mudarFonte(-1)" aria-label="Diminuir fonte">A-</button>
+        <button onclick="mudarFonte(0)" aria-label="Tamanho de fonte original">A (Normal)</button>
+    </div>
+
+    <!-- Cabeçalho da Turma -->
+    <header>
+        <h1>Projeto IFA - Acessibilidade</h1>
+        <p>Desenvolvido pela turma 2°C</p>
+    </header>
+
+    <main>
+        <!-- Texto explicativo geral -->
+        <div class="group-section">
+            <h2>Sobre o Projeto</h2>
+            <p class="intro-text">Este site foi desenvolvido pela turma do 2°C como parte da disciplina de IFA. O objetivo é apresentar nossos projetos em vídeo sobre temas variados, com foco em inclusão e acessibilidade. Abaixo você encontra os trabalhos divididos por grupos.</p>
+        </div>
+
+        <!-- Grupo 1 -->
+        <section class="group-section">
+            <h2>Grupo: Matheus, Vinícius, Miguel, Rafael, Arthur e Yan</h2>
+            <p class="intro-text">Confira abaixo os vídeos desenvolvidos por este grupo, abordando os conceitos iniciais pesquisados para o projeto.</p>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1NOdlpNLDlp87bD02umQF-eFG7KbQpJtW/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 1"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1IGMbLO7sfJaqa3kUmXeOTEs2sql7ecPe/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 2"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1-rXUkEd2Y769THhu8b4jKIuj5hMeuD4z/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 3"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1XVQmPoWOboxWNoljtRMceSpqTAWj5G8V/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 4"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1ILjvU_Tl0r_9LeTa6lHyqbbrsJbIS8Q6/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 5"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grupo 2 -->
+        <section class="group-section">
+            <h2>Grupo: Karla e Sophia</h2>
+            <p class="intro-text">Apresentação e resultados das pesquisas estruturadas por este grupo.</p>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1DdsRyCcqK4JTAe3nxFORv_iNzNUhrCSE/preview" allow="autoplay" allowfullscreen title="Projeto Karla e Sophia"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grupo 3 -->
+        <section class="group-section">
+            <h2>Grupo: Yasmin</h2>
+            <p class="intro-text">Vídeos curtos e dinâmicos apresentando os pontos-chave do projeto abordado.</p>
+            <div class="video-grid shorts-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/_vXjn9b-98Y" allowfullscreen title="Projeto Yasmin - Parte 1"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/si_u4Op-Pqo" allowfullscreen title="Projeto Yasmin - Parte 2"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/bFqwuJMRvO4" allowfullscreen title="Projeto Yasmin - Parte 3"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grupo 4 -->
+        <section class="group-section">
+            <h2>Grupo: Lorena e Isabella</h2>
+            <p class="intro-text">Série de apresentações em vídeo explorando a temática e os resultados práticos da pesquisa do grupo.</p>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1tyryFr_H9O7vzPVubrMcwCQQ0Ns0i9EZ/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 1"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1rfq7IBNNEjkuGK5II5GYSaod5X1CGYtQ/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 2"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1-OeMelJcfNIpisjU23r5OQqq9U-7MZqV/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 3"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/10Kc3WZNt7l5swTRQmrk0Ngri4TZDNCEY/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 4"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grupo 5 -->
+        <section class="group-section">
+            <h2>Grupo: Ana Luiza, Emanuella, Luana, Sabine, Karime e Letícia</h2>
+            <p class="intro-text">Análises e conclusões finais desenvolvidas pela equipe em seus materiais de apresentação.</p>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1SPdU6PQ_P0XxXkp2JE27q25_UaQ_3bT-/preview" allow="autoplay" allowfullscreen title="Projeto Ana Luiza e equipe - Vídeo 1"></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1Nk2XcDkzDOcOLs4bB3ejZzZV-bbxLbOW/preview" allow="autoplay" allowfullscreen title="Projeto Ana Luiza e equipe - Vídeo 2"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Projeto IFA - Turma 2°C. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- WIDGET VLIBRAS (Acessibilidade) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        // Inicia o intérprete de Libras
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+        // Script para a função de Aumentar/Diminuir Fonte
+        let tamanhoFonteAtual = 16; // Tamanho base em pixels
+
+        function mudarFonte(acao) {
+            if (acao === 0) {
+                tamanhoFonteAtual = 16; // Retorna ao normal
+            } else if (acao === 1 && tamanhoFonteAtual < 24) {
+                tamanhoFonteAtual += 2; // Aumenta
+            } else if (acao === -1 && tamanhoFonteAtual > 12) {
+                tamanhoFonteAtual -= 2; // Diminui
+            }
+            document.body.style.fontSize = tamanhoFonteAtual + "px";
+        }
+    </script>
+</body>
+</html>
