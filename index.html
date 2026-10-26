@@ -4,102 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto IFA - Acessibilidade 2°C</title>
+    <!-- Importando fonte moderna do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Globais e Acessibilidade */
+        /* Estilos Globais e Variáveis de Cor */
         :root {
-            --bg-color: #f4f4f9;
-            --text-color: #333;
-            --primary-color: #0056b3;
-            --card-bg: #fff;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --card-bg: #ffffff;
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            transition: font-size 0.3s;
+            transition: font-size 0.3s ease;
+        }
+
+        /* Animação de entrada suave */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Barra de Acessibilidade */
         .accessibility-bar {
-            background-color: #333;
-            color: white;
-            padding: 10px;
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 12px;
             text-align: center;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 15px;
             flex-wrap: wrap;
+            font-weight: 300;
         }
         .accessibility-bar button {
-            background-color: #555;
+            background-color: #334155;
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 8px 16px;
             cursor: pointer;
             font-size: 16px;
-            border-radius: 5px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
         }
         .accessibility-bar button:hover {
-            background-color: #777;
+            background-color: var(--accent-color);
+            transform: scale(1.05);
         }
 
         /* Cabeçalho */
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { font-size: 1.2em; margin-top: 10px; }
+        header h1 { 
+            margin: 0; 
+            font-size: 2.8em; 
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        header p { 
+            font-size: 1.2em; 
+            margin-top: 10px; 
+            font-weight: 300;
+            opacity: 0.9;
+        }
 
         /* Container Principal */
         main {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 1100px;
+            margin: -30px auto 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Seções de Grupo */
+        /* Seções de Grupo (Cards) */
         .group-section {
             background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 30px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--accent-color);
+            animation: fadeIn 0.8s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .group-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
         .group-section h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-top: 0;
+            font-size: 1.5em;
         }
         .intro-text {
             font-size: 1.1em;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: #475569;
         }
 
         /* Grid para os vídeos */
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
         
         .video-container {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: #000;
+            transition: transform 0.3s ease;
+        }
+        .video-container:hover {
+            transform: scale(1.02);
         }
         
         iframe {
             width: 100%;
             height: 315px;
             border: none;
+            display: block;
         }
 
         /* Ajuste específico para Shorts do YouTube (verticais) */
@@ -107,20 +151,22 @@
             height: 500px;
         }
 
+        /* Rodapé */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 40px;
+            padding: 30px;
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9em;
         }
+
     </style>
 </head>
 <body>
 
     <!-- Barra de Acessibilidade -->
     <div class="accessibility-bar">
-        <span>Acessibilidade:</span>
+        <span>Acessibilidade visual:</span>
         <button onclick="mudarFonte(1)" aria-label="Aumentar fonte">A+</button>
         <button onclick="mudarFonte(-1)" aria-label="Diminuir fonte">A-</button>
         <button onclick="mudarFonte(0)" aria-label="Tamanho de fonte original">A (Normal)</button>
@@ -134,13 +180,13 @@
 
     <main>
         <!-- Texto explicativo geral -->
-        <div class="group-section">
+        <div class="group-section" style="animation-delay: 0.1s;">
             <h2>Sobre o Projeto</h2>
             <p class="intro-text">Este site foi desenvolvido pela turma do 2°C como parte da disciplina de IFA. O objetivo é apresentar nossos projetos em vídeo sobre temas variados, com foco em inclusão e acessibilidade. Abaixo você encontra os trabalhos divididos por grupos.</p>
         </div>
 
         <!-- Grupo 1 -->
-        <section class="group-section">
+        <section class="group-section" style="animation-delay: 0.2s;">
             <h2>Grupo: Matheus, Vinícius, Miguel, Rafael, Arthur e Yan</h2>
             <p class="intro-text">Confira abaixo os vídeos desenvolvidos por este grupo, abordando os conceitos iniciais pesquisados para o projeto.</p>
             <div class="video-grid">
@@ -163,7 +209,7 @@
         </section>
 
         <!-- Grupo 2 -->
-        <section class="group-section">
+        <section class="group-section" style="animation-delay: 0.3s;">
             <h2>Grupo: Karla e Sophia</h2>
             <p class="intro-text">Apresentação e resultados das pesquisas estruturadas por este grupo.</p>
             <div class="video-grid">
@@ -174,7 +220,7 @@
         </section>
 
         <!-- Grupo 3 -->
-        <section class="group-section">
+        <section class="group-section" style="animation-delay: 0.4s;">
             <h2>Grupo: Yasmin</h2>
             <p class="intro-text">Vídeos curtos e dinâmicos apresentando os pontos-chave do projeto abordado.</p>
             <div class="video-grid shorts-grid">
@@ -191,7 +237,7 @@
         </section>
 
         <!-- Grupo 4 -->
-        <section class="group-section">
+        <section class="group-section" style="animation-delay: 0.5s;">
             <h2>Grupo: Lorena e Isabella</h2>
             <p class="intro-text">Série de apresentações em vídeo explorando a temática e os resultados práticos da pesquisa do grupo.</p>
             <div class="video-grid">
@@ -211,7 +257,7 @@
         </section>
 
         <!-- Grupo 5 -->
-        <section class="group-section">
+        <section class="group-section" style="animation-delay: 0.6s;">
             <h2>Grupo: Ana Luiza, Emanuella, Luana, Sabine, Karime e Letícia</h2>
             <p class="intro-text">Análises e conclusões finais desenvolvidas pela equipe em seus materiais de apresentação.</p>
             <div class="video-grid">
@@ -243,15 +289,15 @@
         new window.VLibras.Widget('https://vlibras.gov.br/app');
 
         // Script para a função de Aumentar/Diminuir Fonte
-        let tamanhoFonteAtual = 16; // Tamanho base em pixels
+        let tamanhoFonteAtual = 16; 
 
         function mudarFonte(acao) {
             if (acao === 0) {
-                tamanhoFonteAtual = 16; // Retorna ao normal
+                tamanhoFonteAtual = 16; 
             } else if (acao === 1 && tamanhoFonteAtual < 24) {
-                tamanhoFonteAtual += 2; // Aumenta
+                tamanhoFonteAtual += 2; 
             } else if (acao === -1 && tamanhoFonteAtual > 12) {
-                tamanhoFonteAtual -= 2; // Diminui
+                tamanhoFonteAtual -= 2; 
             }
             document.body.style.fontSize = tamanhoFonteAtual + "px";
         }
