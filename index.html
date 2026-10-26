@@ -4,123 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto IFA - Acessibilidade 2°C</title>
-    <!-- Importando fonte moderna do Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Fonte Moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Globais e Variáveis de Cor */
-        :root {
-            --bg-color: #f8fafc;
-            --text-color: #334155;
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --card-bg: #ffffff;
-        }
-        
+        /* Fundo Animado e Colorido */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #2d3748;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             transition: font-size 0.3s ease;
         }
 
-        /* Animação de entrada suave */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Barra de Acessibilidade */
+        /* Barra de Acessibilidade Fixa e Moderna */
         .accessibility-bar {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            color: #fff;
             padding: 12px;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
-            flex-wrap: wrap;
-            font-weight: 300;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+        .accessibility-bar span { font-weight: 600; letter-spacing: 1px; }
         .accessibility-bar button {
-            background-color: #334155;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 8px 18px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.2s ease;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         .accessibility-bar button:hover {
-            background-color: var(--accent-color);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
         }
 
-        /* Cabeçalho */
+        /* Cabeçalho de Impacto */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
             text-align: center;
-            padding: 60px 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            padding: 60px 20px 40px;
         }
         header h1 { 
             margin: 0; 
-            font-size: 2.8em; 
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 3.5em; 
+            font-weight: 800;
+            color: #1a202c;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.7);
         }
         header p { 
-            font-size: 1.2em; 
-            margin-top: 10px; 
-            font-weight: 300;
-            opacity: 0.9;
+            font-size: 1.3em; 
+            font-weight: 600;
+            color: #4a5568;
+            background: rgba(255,255,255,0.6);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 20px;
+            margin-top: 10px;
         }
 
         /* Container Principal */
         main {
             max-width: 1100px;
-            margin: -30px auto 40px auto;
+            margin: 0 auto 50px auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Seções de Grupo (Cards) */
+        /* Efeito Glassmorphism (Cartões de Vidro) para os Grupos */
         .group-section {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--accent-color);
-            animation: fadeIn 0.8s ease-out forwards;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .group-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
+        
         .group-section h2 {
-            color: var(--secondary-color);
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 12px;
+            color: #2b6cb0;
+            font-size: 1.8em;
             margin-top: 0;
-            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px dashed #cbd5e0;
+            padding-bottom: 15px;
         }
         .intro-text {
-            font-size: 1.1em;
+            font-size: 1.15em;
+            color: #2d3748;
+            font-weight: 500;
             margin-bottom: 25px;
-            color: #475569;
         }
 
-        /* Grid para os vídeos */
+        /* Grid de Vídeos com estilo Neon/Sombra */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -128,15 +131,16 @@
         }
         
         .video-container {
-            width: 100%;
-            border-radius: 12px;
+            background: #000;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background-color: #000;
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
         }
         .video-container:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
+            box-shadow: 0 12px 25px rgba(66, 153, 225, 0.4);
         }
         
         iframe {
@@ -145,138 +149,104 @@
             border: none;
             display: block;
         }
-
-        /* Ajuste específico para Shorts do YouTube (verticais) */
         .shorts-grid iframe {
-            height: 500px;
+            height: 520px; /* Mais altura para vídeos em pé do YouTube */
         }
 
         /* Rodapé */
         footer {
             text-align: center;
             padding: 30px;
-            background-color: #0f172a;
-            color: #94a3b8;
-            font-size: 0.9em;
+            background: rgba(0, 0, 0, 0.85);
+            color: #cbd5e0;
+            font-weight: 600;
         }
-
     </style>
 </head>
 <body>
 
     <!-- Barra de Acessibilidade -->
     <div class="accessibility-bar">
-        <span>Acessibilidade visual:</span>
-        <button onclick="mudarFonte(1)" aria-label="Aumentar fonte">A+</button>
-        <button onclick="mudarFonte(-1)" aria-label="Diminuir fonte">A-</button>
-        <button onclick="mudarFonte(0)" aria-label="Tamanho de fonte original">A (Normal)</button>
+        <span>👁️ Acessibilidade:</span>
+        <button onclick="mudarFonte(1)">A+</button>
+        <button onclick="mudarFonte(-1)">A-</button>
+        <button onclick="mudarFonte(0)">A (Normal)</button>
     </div>
 
-    <!-- Cabeçalho da Turma -->
+    <!-- Cabeçalho -->
     <header>
-        <h1>Projeto IFA - Acessibilidade</h1>
-        <p>Desenvolvido pela turma 2°C</p>
+        <h1>Projeto IFA</h1>
+        <p>Acessibilidade e Inclusão • Turma 2°C</p>
     </header>
 
     <main>
-        <!-- Texto explicativo geral -->
-        <div class="group-section" style="animation-delay: 0.1s;">
-            <h2>Sobre o Projeto</h2>
-            <p class="intro-text">Este site foi desenvolvido pela turma do 2°C como parte da disciplina de IFA. O objetivo é apresentar nossos projetos em vídeo sobre temas variados, com foco em inclusão e acessibilidade. Abaixo você encontra os trabalhos divididos por grupos.</p>
+        <!-- Introdução -->
+        <div class="group-section">
+            <h2>🎯 Sobre o Projeto</h2>
+            <p class="intro-text">Este site foi desenvolvido pela turma do 2°C como parte da disciplina de IFA. O objetivo é apresentar nossos projetos em vídeo sobre temas variados, com foco em inclusão e acessibilidade. Abaixo você encontra os trabalhos divididos por equipes.</p>
         </div>
 
         <!-- Grupo 1 -->
-        <section class="group-section" style="animation-delay: 0.2s;">
-            <h2>Grupo: Matheus, Vinícius, Miguel, Rafael, Arthur e Yan</h2>
+        <section class="group-section">
+            <h2>🚀 Grupo: Matheus, Vinícius, Miguel, Rafael, Arthur e Yan</h2>
             <p class="intro-text">Confira abaixo os vídeos desenvolvidos por este grupo, abordando os conceitos iniciais pesquisados para o projeto.</p>
             <div class="video-grid">
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1NOdlpNLDlp87bD02umQF-eFG7KbQpJtW/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 1"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1IGMbLO7sfJaqa3kUmXeOTEs2sql7ecPe/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 2"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1-rXUkEd2Y769THhu8b4jKIuj5hMeuD4z/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 3"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1XVQmPoWOboxWNoljtRMceSpqTAWj5G8V/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 4"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1ILjvU_Tl0r_9LeTa6lHyqbbrsJbIS8Q6/preview" allow="autoplay" allowfullscreen title="Projeto Grupo 1 - Vídeo 5"></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1NOdlpNLDlp87bD02umQF-eFG7KbQpJtW/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1IGMbLO7sfJaqa3kUmXeOTEs2sql7ecPe/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1-rXUkEd2Y769THhu8b4jKIuj5hMeuD4z/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1XVQmPoWOboxWNoljtRMceSpqTAWj5G8V/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1ILjvU_Tl0r_9LeTa6lHyqbbrsJbIS8Q6/preview" allow="autoplay" allowfullscreen></iframe></div>
             </div>
         </section>
 
         <!-- Grupo 2 -->
-        <section class="group-section" style="animation-delay: 0.3s;">
-            <h2>Grupo: Karla e Sophia</h2>
+        <section class="group-section">
+            <h2>💡 Grupo: Karla e Sophia</h2>
             <p class="intro-text">Apresentação e resultados das pesquisas estruturadas por este grupo.</p>
             <div class="video-grid">
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1DdsRyCcqK4JTAe3nxFORv_iNzNUhrCSE/preview" allow="autoplay" allowfullscreen title="Projeto Karla e Sophia"></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1DdsRyCcqK4JTAe3nxFORv_iNzNUhrCSE/preview" allow="autoplay" allowfullscreen></iframe></div>
             </div>
         </section>
 
         <!-- Grupo 3 -->
-        <section class="group-section" style="animation-delay: 0.4s;">
-            <h2>Grupo: Yasmin</h2>
+        <section class="group-section">
+            <h2>📱 Grupo: Yasmin</h2>
             <p class="intro-text">Vídeos curtos e dinâmicos apresentando os pontos-chave do projeto abordado.</p>
             <div class="video-grid shorts-grid">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/_vXjn9b-98Y" allowfullscreen title="Projeto Yasmin - Parte 1"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/si_u4Op-Pqo" allowfullscreen title="Projeto Yasmin - Parte 2"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/bFqwuJMRvO4" allowfullscreen title="Projeto Yasmin - Parte 3"></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/_vXjn9b-98Y" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/si_u4Op-Pqo" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/bFqwuJMRvO4" allowfullscreen></iframe></div>
             </div>
         </section>
 
         <!-- Grupo 4 -->
-        <section class="group-section" style="animation-delay: 0.5s;">
-            <h2>Grupo: Lorena e Isabella</h2>
+        <section class="group-section">
+            <h2>🎬 Grupo: Lorena e Isabella</h2>
             <p class="intro-text">Série de apresentações em vídeo explorando a temática e os resultados práticos da pesquisa do grupo.</p>
             <div class="video-grid">
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1tyryFr_H9O7vzPVubrMcwCQQ0Ns0i9EZ/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 1"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1rfq7IBNNEjkuGK5II5GYSaod5X1CGYtQ/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 2"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1-OeMelJcfNIpisjU23r5OQqq9U-7MZqV/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 3"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/10Kc3WZNt7l5swTRQmrk0Ngri4TZDNCEY/preview" allow="autoplay" allowfullscreen title="Projeto Lorena e Isabella - Vídeo 4"></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1tyryFr_H9O7vzPVubrMcwCQQ0Ns0i9EZ/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1rfq7IBNNEjkuGK5II5GYSaod5X1CGYtQ/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1-OeMelJcfNIpisjU23r5OQqq9U-7MZqV/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/10Kc3WZNt7l5swTRQmrk0Ngri4TZDNCEY/preview" allow="autoplay" allowfullscreen></iframe></div>
             </div>
         </section>
 
         <!-- Grupo 5 -->
-        <section class="group-section" style="animation-delay: 0.6s;">
-            <h2>Grupo: Ana Luiza, Emanuella, Luana, Sabine, Karime e Letícia</h2>
+        <section class="group-section">
+            <h2>📊 Grupo: Ana Luiza, Emanuella, Luana, Sabine, Karime e Letícia</h2>
             <p class="intro-text">Análises e conclusões finais desenvolvidas pela equipe em seus materiais de apresentação.</p>
             <div class="video-grid">
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1SPdU6PQ_P0XxXkp2JE27q25_UaQ_3bT-/preview" allow="autoplay" allowfullscreen title="Projeto Ana Luiza e equipe - Vídeo 1"></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1Nk2XcDkzDOcOLs4bB3ejZzZV-bbxLbOW/preview" allow="autoplay" allowfullscreen title="Projeto Ana Luiza e equipe - Vídeo 2"></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1SPdU6PQ_P0XxXkp2JE27q25_UaQ_3bT-/preview" allow="autoplay" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://drive.google.com/file/d/1Nk2XcDkzDOcOLs4bB3ejZzZV-bbxLbOW/preview" allow="autoplay" allowfullscreen></iframe></div>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <p>&copy; 2024 Projeto IFA - Turma 2°C. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Projeto IFA - Turma 2°C. Site acessível e interativo.</p>
     </footer>
 
-    <!-- WIDGET VLIBRAS (Acessibilidade) -->
+    <!-- WIDGET VLIBRAS -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
@@ -285,16 +255,13 @@
     </div>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
-        // Inicia o intérprete de Libras
         new window.VLibras.Widget('https://vlibras.gov.br/app');
 
-        // Script para a função de Aumentar/Diminuir Fonte
         let tamanhoFonteAtual = 16; 
-
         function mudarFonte(acao) {
             if (acao === 0) {
                 tamanhoFonteAtual = 16; 
-            } else if (acao === 1 && tamanhoFonteAtual < 24) {
+            } else if (acao === 1 && tamanhoFonteAtual < 26) {
                 tamanhoFonteAtual += 2; 
             } else if (acao === -1 && tamanhoFonteAtual > 12) {
                 tamanhoFonteAtual -= 2; 
